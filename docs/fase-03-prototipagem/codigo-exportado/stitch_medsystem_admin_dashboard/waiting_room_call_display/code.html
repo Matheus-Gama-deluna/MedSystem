@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MedSystem - Waiting Room Display</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0077b8",
+                        "secondary": "#005a8d",
+                        "accent": "#facc15",
+                        "background-light": "#f0f4f8", // Slightly darker than white for contrast with white cards
+                        "background-dark": "#0f1c23",
+                        "surface-dark": "#0c171d",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                    animation: {
+                        'pulse-glow': 'pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'marquee': 'marquee 25s linear infinite',
+                    },
+                    keyframes: {
+                        'pulse-glow': {
+                            '0%, 100%': { boxShadow: '0 0 0 0px rgba(250, 204, 21, 0.7)' },
+                            '50%': { boxShadow: '0 0 0 20px rgba(250, 204, 21, 0)' },
+                        },
+                        'marquee': {
+                            '0%': { transform: 'translateX(100%)' },
+                            '100%': { transform: 'translateX(-100%)' },
+                        }
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar hiding for cleaner TV look */
+        ::-webkit-scrollbar {
+            width: 0px;
+            background: transparent;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display h-screen w-screen overflow-hidden flex flex-col text-[#0c171d] dark:text-white">
+<!-- Top Header -->
+<header class="flex-none h-20 px-8 flex items-center justify-between bg-white dark:bg-[#1a2c35] border-b border-slate-200 dark:border-slate-800 shadow-sm z-10">
+<div class="flex items-center gap-4">
+<div class="h-10 w-10 flex items-center justify-center bg-primary text-white rounded-lg">
+<span class="material-symbols-outlined text-3xl">local_hospital</span>
+</div>
+<h1 class="text-3xl font-black tracking-tight text-primary dark:text-white">MedSystem</h1>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-3 px-6 py-2 bg-slate-100 dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700">
+<span class="material-symbols-outlined text-primary dark:text-gray-400">calendar_today</span>
+<span class="text-xl font-bold text-slate-700 dark:text-slate-200">12/10/2023</span>
+</div>
+<div class="flex items-center gap-3 px-6 py-2 bg-primary text-white rounded-lg shadow-md">
+<span class="material-symbols-outlined">schedule</span>
+<span class="text-xl font-bold">14:35</span>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 flex gap-6 p-6 h-[calc(100vh-80px-60px)]">
+<!-- Left: Current Call (Hero) -->
+<section class="flex-[2] flex flex-col">
+<!-- Main Card Container -->
+<div class="h-full flex flex-col rounded-2xl overflow-hidden shadow-2xl bg-primary relative animate-pulse-glow border-4 border-white dark:border-slate-700">
+<!-- Alert Banner / Status -->
+<div class="bg-accent text-surface-dark px-8 py-4 flex items-center justify-between animate-pulse">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-4xl fill-current">notifications_active</span>
+<span class="text-3xl font-black uppercase tracking-wider">Chamando Agora</span>
+</div>
+<span class="material-symbols-outlined text-4xl">volume_up</span>
+</div>
+<!-- Patient Info Area -->
+<div class="flex-1 flex flex-col items-center justify-center p-8 text-center bg-gradient-to-b from-primary to-secondary relative">
+<!-- Background Pattern -->
+<div class="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-white to-transparent pointer-events-none"></div>
+<div class="z-10 w-full">
+<p class="text-blue-100 text-2xl font-semibold mb-2 uppercase tracking-widest">Paciente</p>
+<h2 class="text-[7rem] leading-none font-black text-white mb-8 drop-shadow-md break-words">
+                            PEDRO ALVES
+                        </h2>
+<div class="w-32 h-2 bg-accent mx-auto rounded-full mb-10"></div>
+<div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 inline-block w-full max-w-4xl shadow-lg">
+<div class="flex flex-col md:flex-row items-center justify-around gap-8">
+<div class="text-center">
+<p class="text-blue-200 text-xl font-medium mb-1 uppercase">Local</p>
+<div class="flex items-center gap-3 justify-center text-accent">
+<span class="material-symbols-outlined text-5xl">meeting_room</span>
+<p class="text-6xl font-black tracking-tight">SALA 04</p>
+</div>
+</div>
+<div class="hidden md:block w-px h-24 bg-white/20"></div>
+<div class="text-center">
+<p class="text-blue-200 text-xl font-medium mb-1 uppercase">Especialista</p>
+<div class="flex items-center gap-3 justify-center text-white">
+<span class="material-symbols-outlined text-5xl">stethoscope</span>
+<div class="text-left">
+<p class="text-3xl font-bold leading-tight">Dr. Silva</p>
+<p class="text-xl text-blue-100">Cardiologista</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Right: History Sidebar -->
+<aside class="flex-1 flex flex-col bg-white dark:bg-[#1a2c35] rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 overflow-hidden min-w-[380px] max-w-[480px]">
+<div class="bg-slate-100 dark:bg-slate-800 p-6 border-b border-slate-200 dark:border-slate-700 flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-500 text-3xl">history</span>
+<h3 class="text-2xl font-bold text-slate-700 dark:text-slate-200">Últimas Chamadas</h3>
+</div>
+<div class="flex-1 flex flex-col divide-y divide-slate-100 dark:divide-slate-700">
+<!-- History Item 1 -->
+<div class="flex-1 flex items-center p-6 bg-white dark:bg-transparent relative overflow-hidden group">
+<div class="absolute left-0 top-0 bottom-0 w-2 bg-slate-300 dark:bg-slate-600"></div>
+<div class="flex items-center gap-5 w-full">
+<div class="h-20 w-20 rounded-full bg-slate-100 dark:bg-slate-700 flex-shrink-0 border-2 border-slate-200 dark:border-slate-600 overflow-hidden bg-cover bg-center" data-alt="Portrait of a woman" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBkXs0XRheN1396baLGAVg3tfE1Ysb2cGpfEt7Bz3Qj0-IvX6pJYetnkW69uSzJdEZj3-A4joIjH_oHSNW2oUu4wepmQt-409AiLUorUAAXCTjLN7xCTihF2ZQBRcglrFhuOrr5r66q11zVjZmkXRuueZiOSVzkhL9-XII8dYS2bIyhljGS9AlP03uWpUiwCYFSpRQ54svzG1v00jKCaZ88PNoFGDUlPYHR_RAN_yq-CyaX0xu_IeapIiRDfvT1aLW68sEXwEZrS3I');">
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-slate-400 dark:text-slate-400 text-lg font-medium mb-1 flex justify-between">
+<span>14:30</span>
+<span class="material-symbols-outlined text-slate-300">check_circle</span>
+</p>
+<h4 class="text-3xl font-bold text-slate-800 dark:text-white truncate">Maria Silva</h4>
+<p class="text-xl text-primary font-semibold mt-1 flex items-center gap-2">
+<span class="material-symbols-outlined text-xl">door_front</span>
+                                Sala 02
+                            </p>
+</div>
+</div>
+</div>
+<!-- History Item 2 -->
+<div class="flex-1 flex items-center p-6 bg-slate-50/50 dark:bg-transparent relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-2 bg-slate-200 dark:bg-slate-700"></div>
+<div class="flex items-center gap-5 w-full opacity-80">
+<div class="h-20 w-20 rounded-full bg-slate-100 dark:bg-slate-700 flex-shrink-0 border-2 border-slate-200 dark:border-slate-600 overflow-hidden bg-cover bg-center" data-alt="Portrait of a man" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCeDb_TtS8irOUGptfsZKK1Oo7IzF-YkRsymaO036qhYQAGZTG5jMFhlxgt2LZkPIzDBHAhssDLDLUpbj67nOBkLpl-BUrtDZ7HkahJhcmRf34rOxXqSjTo1vIxqk6ecMPdNJUH2zpcp4Kzp0O4eYVhTz4UNTh3bMWeeJVHuODTJC2N8_54fRq4vQTdg_9-64rngkJ4a-9f4ymAr04BpUfjZ7c7WIJZzZpvpft_EIbh5oTKDbTZtdXPzmiI6DqOAEbnu--yag7Yo0Y');">
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-slate-400 text-lg font-medium mb-1">14:25</p>
+<h4 class="text-3xl font-bold text-slate-700 dark:text-slate-200 truncate">João Souza</h4>
+<p class="text-xl text-slate-500 font-semibold mt-1 flex items-center gap-2">
+<span class="material-symbols-outlined text-xl">assignment_ind</span>
+                                Triagem
+                            </p>
+</div>
+</div>
+</div>
+<!-- History Item 3 -->
+<div class="flex-1 flex items-center p-6 bg-slate-50 dark:bg-transparent relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-2 bg-slate-200 dark:bg-slate-800"></div>
+<div class="flex items-center gap-5 w-full opacity-60">
+<div class="h-20 w-20 rounded-full bg-slate-100 dark:bg-slate-700 flex-shrink-0 border-2 border-slate-200 dark:border-slate-600 flex items-center justify-center text-slate-400">
+<span class="material-symbols-outlined text-4xl">person</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-slate-400 text-lg font-medium mb-1">14:18</p>
+<h4 class="text-3xl font-bold text-slate-600 dark:text-slate-400 truncate">Ana Costa</h4>
+<p class="text-xl text-slate-400 font-semibold mt-1 flex items-center gap-2">
+<span class="material-symbols-outlined text-xl">medical_services</span>
+                                Consultório 01
+                            </p>
+</div>
+</div>
+</div>
+</div>
+</aside>
+</main>
+<!-- Footer Marquee -->
+<footer class="h-[60px] bg-slate-900 text-white flex items-center overflow-hidden relative z-20 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
+<div class="bg-accent text-surface-dark px-6 h-full flex items-center font-bold text-lg z-10 shadow-lg">
+<span class="material-symbols-outlined mr-2">info</span> AVISOS
+        </div>
+<div class="flex-1 overflow-hidden relative h-full flex items-center">
+<div class="whitespace-nowrap animate-marquee absolute text-xl font-medium tracking-wide">
+                Por favor, tenha seu documento de identificação em mãos. • O uso de máscara é obrigatório para pacientes com sintomas gripais. • Tempo de espera estimado para Clínica Geral: 15 minutos. • Vacinação contra gripe disponível na sala 08. • Mantenha o silêncio na área de espera.
+            </div>
+</div>
+</footer>
+</body></html>

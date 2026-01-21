@@ -1,14 +1,27 @@
 {
-  "projeto_id": "927f4224-4dd0-40f8-be8c-0d983a26ae70",
-  "nome": "MedSystem",
-  "diretorio": "c:\\Users\\gamam\\OneDrive\\Documentos\\1- TramposTec\\Sistema Gerenciamento médico",
-  "nivel": "medio",
-  "tipo_fluxo": "novo_projeto",
-  "fase_atual": 1,
-  "total_fases": 10,
-  "entregaveis": {},
-  "gates_validados": [],
-  "usar_stitch": false,
-  "criado_em": "2026-01-12T02:46:41.244Z",
-  "atualizado_em": "2026-01-12T02:46:41.245Z"
+    "projeto_id": "68bc8cad-d598-43b8-ac1f-737000c8b446",
+    "nome": "MedSystem",
+    "diretorio": "d:/Sistemas/MedSystem",
+    "nivel": "medio",
+    "tipo_fluxo": "novo_projeto",
+    "fase_atual": 2,
+    "total_fases": 14,
+    "entregaveis": {
+        "fase_1": "d:/Sistemas/MedSystem/docs/fase-01-produto/PRD.md"
+    },
+    "gates_validados": [
+        1
+    ],
+    "usar_stitch": true,
+    "stitch_confirmado": true,
+    "tipo_artefato": "product",
+    "tier_gate": "avancado",
+    "classificacao_confirmada": true,
+    "aguardando_classificacao": false,
+    "classificacao_pos_prd_confirmada": false,
+    "aguardando_aprovacao": true,
+    "criado_em": "2026-01-21T19:07:59.098Z",
+    "atualizado_em": "2026-01-21T19:44:17.105Z",
+    "motivo_bloqueio": "Score abaixo de 70 - requer aprovação do usuário",
+    "score_bloqueado": 61
 }

@@ -1,17 +1,17 @@
 {
-  "projeto_id": "927f4224-4dd0-40f8-be8c-0d983a26ae70",
-  "nome": "MedSystem",
-  "nivel": "medio",
-  "fase_atual": 1,
-  "total_fases": 10,
-  "atualizado_em": "2026-01-12T02:46:41.245Z",
-  "entregaveis": [],
-  "decisoes_importantes": [],
-  "contexto_atual": {
-    "fase_nome": "PRD",
-    "objetivo": "Definir o produto e requisitos iniciais",
-    "proximo_passo": "Desenvolver o PRD com problema, usuários e MVP",
-    "dependencias": []
-  },
-  "descricao": "Sistema completo de gerenciamento médico"
+    "projeto_id": "68bc8cad-d598-43b8-ac1f-737000c8b446",
+    "nome": "MedSystem",
+    "nivel": "complexo",
+    "fase_atual": 1,
+    "total_fases": 10,
+    "atualizado_em": "2026-01-21T19:07:59.099Z",
+    "entregaveis": [],
+    "decisoes_importantes": [],
+    "contexto_atual": {
+        "fase_nome": "PRD",
+        "objetivo": "Definir o produto e requisitos iniciais",
+        "proximo_passo": "Desenvolver o PRD com problema, usuários e MVP",
+        "dependencias": []
+    },
+    "descricao": "Sistema para gestão de consultas médicas, calendário, acompanhamento de agendamentos e salas disponíveis, para médicos, recepcionistas e administradores."
 }
